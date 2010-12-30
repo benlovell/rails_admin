@@ -284,7 +284,7 @@ module RailsAdmin
     def update_associations(association, ids = [])
       associated_model = RailsAdmin::AbstractModel.new(association[:child_model])
       @object.send "#{association[:name]}=", ids.collect{|id| associated_model.get(id)}.compact
-      @object.save
+      @object.save!
     end
 
     def redirect_to_on_success
